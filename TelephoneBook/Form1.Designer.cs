@@ -30,8 +30,8 @@ namespace TelephoneBook_
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tbNumber = new System.Windows.Forms.TextBox();
-            this.tbName = new System.Windows.Forms.TextBox();
+            this.tbAllName = new System.Windows.Forms.TextBox();
+            this.tbPhoneNumber = new System.Windows.Forms.TextBox();
             this.l = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -41,6 +41,10 @@ namespace TelephoneBook_
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btDelete = new System.Windows.Forms.Button();
+            this.tbPhoneMobile = new System.Windows.Forms.TextBox();
+            this.tbAdress = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).BeginInit();
             this.SuspendLayout();
@@ -58,33 +62,34 @@ namespace TelephoneBook_
             this.dataGridView1.Size = new System.Drawing.Size(330, 203);
             this.dataGridView1.TabIndex = 0;
             // 
-            // tbNumber
+            // tbAllName
             // 
-            this.tbNumber.Location = new System.Drawing.Point(62, 301);
-            this.tbNumber.Name = "tbNumber";
-            this.tbNumber.Size = new System.Drawing.Size(231, 23);
-            this.tbNumber.TabIndex = 2;
+            this.tbAllName.Location = new System.Drawing.Point(62, 274);
+            this.tbAllName.Name = "tbAllName";
+            this.tbAllName.Size = new System.Drawing.Size(231, 23);
+            this.tbAllName.TabIndex = 2;
             // 
-            // tbName
+            // tbPhoneNumber
             // 
-            this.tbName.Location = new System.Drawing.Point(62, 361);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(231, 23);
-            this.tbName.TabIndex = 3;
+            this.tbPhoneNumber.Location = new System.Drawing.Point(62, 318);
+            this.tbPhoneNumber.Name = "tbPhoneNumber";
+            this.tbPhoneNumber.Size = new System.Drawing.Size(231, 23);
+            this.tbPhoneNumber.TabIndex = 3;
             // 
             // l
             // 
             this.l.AutoSize = true;
-            this.l.Location = new System.Drawing.Point(62, 283);
+            this.l.Location = new System.Drawing.Point(62, 348);
             this.l.Name = "l";
-            this.l.Size = new System.Drawing.Size(45, 15);
+            this.l.Size = new System.Drawing.Size(117, 15);
             this.l.TabIndex = 4;
-            this.l.Text = "Номер";
+            this.l.Text = "Номер мобильного";
+            
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 343);
+            this.label2.Location = new System.Drawing.Point(62, 256);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 15);
             this.label2.TabIndex = 5;
@@ -150,19 +155,57 @@ namespace TelephoneBook_
             // 
             // btDelete
             // 
+            this.btDelete.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btDelete.Location = new System.Drawing.Point(639, 274);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(149, 50);
             this.btDelete.TabIndex = 9;
             this.btDelete.Text = "Удалить выбранные контакты";
-            this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.UseVisualStyleBackColor = false;
             this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            // 
+            // tbPhoneMobile
+            // 
+            this.tbPhoneMobile.Location = new System.Drawing.Point(62, 366);
+            this.tbPhoneMobile.Name = "tbPhoneMobile";
+            this.tbPhoneMobile.Size = new System.Drawing.Size(231, 23);
+            this.tbPhoneMobile.TabIndex = 10;
+            // 
+            // tbAdress
+            // 
+            this.tbAdress.Location = new System.Drawing.Point(62, 406);
+            this.tbAdress.Name = "tbAdress";
+            this.tbAdress.Size = new System.Drawing.Size(231, 23);
+            this.tbAdress.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(62, 300);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 15);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Номер телефона";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(62, 392);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 15);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Адрес";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbAdress);
+            this.Controls.Add(this.tbPhoneMobile);
             this.Controls.Add(this.btDelete);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -171,12 +214,12 @@ namespace TelephoneBook_
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.l);
-            this.Controls.Add(this.tbName);
-            this.Controls.Add(this.tbNumber);
+            this.Controls.Add(this.tbPhoneNumber);
+            this.Controls.Add(this.tbAllName);
             this.Controls.Add(this.dgvFind);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Телефонный справочник";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).EndInit();
@@ -192,8 +235,8 @@ namespace TelephoneBook_
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label l;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbNumber;
-        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.TextBox tbAllName;
+        private System.Windows.Forms.TextBox tbPhoneNumber;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox tbFind;
         private System.Windows.Forms.Label label1;
@@ -201,6 +244,10 @@ namespace TelephoneBook_
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.TextBox tbPhoneMobile;
+        private System.Windows.Forms.TextBox tbAdress;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 
