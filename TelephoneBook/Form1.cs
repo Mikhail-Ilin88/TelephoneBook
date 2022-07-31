@@ -55,7 +55,7 @@ namespace TelephoneBook_
         {
             //OldFind();
             FindMm();
-            SelectAllMm();
+            // SelectAllMm();
         }
 
         private void OldFind()
@@ -65,29 +65,36 @@ namespace TelephoneBook_
                 MySqlDataAdapter SDA = new MySqlDataAdapter($"select * from accounts where name like '%{tbFind.Text}%' or phone like '%{tbFind.Text}%'", conn);
                 DataTable dataTable = new DataTable();
                 SDA.Fill(dataTable);
-                dgvFind.DataSource = dataTable;
+                //dgvFind.DataSource = dataTable;
             }
         }
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-            int indexRow = dgvFind.CurrentCell.RowIndex;
-            //string text = indexRow.ToString();
+            DeleteAccountMmSql();
+            SelectAllMm();
+        }
 
-            string id = dgvFind.Rows[indexRow].Cells["id"].Value.ToString();
-            //MessageBox.Show(text);
-            //MessageBox.Show(id);
-            using (conn)
+        private void DeleteAccountMmSql()
+        {
+            int indexRow = dataGridView1.CurrentCell.RowIndex;
+
+            string id = dataGridView1.Rows[indexRow].Cells["id"].Value.ToString();
+            string name = dataGridView1.Rows[indexRow].Cells["AllName"].Value.ToString();
+
+            DialogResult dialog = MessageBox.Show($"Удалить контакт: {id}. {name}?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialog == DialogResult.Yes)
             {
-                MySqlDataAdapter SDA = new MySqlDataAdapter($"DELETE FROM `accounts` WHERE id = {id}", conn);
-                DataTable dataTable = new DataTable();
-                SDA.Fill(dataTable);
-            }
-            MessageBox.Show($"Контакт под номером: {id} удален", "Удаление");
+                mmSqlConnection.Open();
 
-            // Обновление таблиц
-            tbFind_TextChanged(sender, e);
-            SelectAll();
+                SqlCommand cmd = new SqlCommand($"delete from  [dbo].[accountsbook] where id = '{id}'", mmSqlConnection);
+
+                cmd.ExecuteNonQuery();
+
+                mmSqlConnection.Close();
+                MessageBox.Show("Контакт удален!");
+            }
         }
         #endregion
 
@@ -109,7 +116,7 @@ namespace TelephoneBook_
 
         #endregion
 
-       
+
 
         private void SelectAllMm()
         {
@@ -138,7 +145,7 @@ namespace TelephoneBook_
         private void FindMm()
         {
             mmSqlConnection.Open();
-            SqlCommand cmd = new SqlCommand($"select * from [dbo].[accountsbook] where (AllName, PhoneNumber, PhoneMobile, Adress) like '{tbFind.Text}' or  like '{tbFind.Text}'  or  like '{tbFind.Text}'  or  like '{tbFind.Text}')", mmSqlConnection);
+            SqlCommand cmd = new SqlCommand($"select * from [dbo].[accountsbook] where AllName like '%{tbFind.Text}%' or PhoneNumber like '%{tbFind.Text}%' or PhoneMobile like '%{tbFind.Text}%' or Adress like '%{tbFind.Text}%'", mmSqlConnection);
 
             DataTable dataTable = new DataTable();
             dataTable.Load(cmd.ExecuteReader());
@@ -148,6 +155,49 @@ namespace TelephoneBook_
             mmSqlConnection.Close();
         }
 
-       
+        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
+        {
+            //UpdateRowMm();
+        }
+
+        private void UpdateRowMm()
+        {
+            int indexRow = dataGridView1.CurrentCell.RowIndex;
+
+            string id = dataGridView1.Rows[indexRow].Cells["id"].Value.ToString();
+            string name = dataGridView1.Rows[indexRow].Cells["AllName"].Value.ToString();
+            string phone = dataGridView1.Rows[indexRow].Cells["PhoneNumber"].Value.ToString();
+            string mobile = dataGridView1.Rows[indexRow].Cells["PhoneMobile"].Value.ToString();
+            string adress = dataGridView1.Rows[indexRow].Cells["Adress"].Value.ToString();
+
+
+            mmSqlConnection.Open();
+
+            SqlCommand cmd = new SqlCommand($"UPDATE [accountsbook] SET AllName = '{name}', PhoneNumber = '{phone}', PhoneMobile = '{mobile}', Adress = '{adress}' WHERE id = '{id}'", mmSqlConnection);
+
+            cmd.ExecuteNonQuery();
+
+            mmSqlConnection.Close();
+        }
+
+        private void btUpdateRow_Click(object sender, EventArgs e)
+        {
+            int indexRow = dataGridView1.CurrentCell.RowIndex;
+
+            string id = dataGridView1.Rows[indexRow].Cells["id"].Value.ToString();
+            string name = dataGridView1.Rows[indexRow].Cells["AllName"].Value.ToString();
+            string phone = dataGridView1.Rows[indexRow].Cells["PhoneNumber"].Value.ToString();
+            string mobile = dataGridView1.Rows[indexRow].Cells["PhoneMobile"].Value.ToString();
+            string adress = dataGridView1.Rows[indexRow].Cells["Adress"].Value.ToString();
+
+
+            ChangeAccountRowForm change = new ChangeAccountRowForm(id, name, phone, mobile, adress, this);
+            change.Show();
+        }
+
+        public void Refresh()
+        {
+            SelectAllMm();
+        }
     }
 }
