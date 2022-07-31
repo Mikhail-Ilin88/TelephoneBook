@@ -44,7 +44,9 @@ namespace TelephoneBook_
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btUpdateRow = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -58,20 +60,19 @@ namespace TelephoneBook_
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(512, 203);
+            this.dataGridView1.Size = new System.Drawing.Size(595, 203);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
             // 
             // tbAllName
             // 
-            this.tbAllName.Location = new System.Drawing.Point(43, 339);
+            this.tbAllName.Location = new System.Drawing.Point(3, 21);
             this.tbAllName.Name = "tbAllName";
             this.tbAllName.Size = new System.Drawing.Size(231, 23);
             this.tbAllName.TabIndex = 2;
             // 
             // tbPhoneNumber
             // 
-            this.tbPhoneNumber.Location = new System.Drawing.Point(43, 383);
+            this.tbPhoneNumber.Location = new System.Drawing.Point(3, 65);
             this.tbPhoneNumber.Name = "tbPhoneNumber";
             this.tbPhoneNumber.Size = new System.Drawing.Size(231, 23);
             this.tbPhoneNumber.TabIndex = 3;
@@ -79,7 +80,7 @@ namespace TelephoneBook_
             // l
             // 
             this.l.AutoSize = true;
-            this.l.Location = new System.Drawing.Point(43, 413);
+            this.l.Location = new System.Drawing.Point(3, 95);
             this.l.Name = "l";
             this.l.Size = new System.Drawing.Size(117, 15);
             this.l.TabIndex = 4;
@@ -88,7 +89,7 @@ namespace TelephoneBook_
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 321);
+            this.label2.Location = new System.Drawing.Point(3, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 15);
             this.label2.TabIndex = 5;
@@ -96,7 +97,8 @@ namespace TelephoneBook_
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(280, 395);
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button2.Location = new System.Drawing.Point(236, 77);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 50);
             this.button2.TabIndex = 6;
@@ -108,7 +110,7 @@ namespace TelephoneBook_
             // 
             this.tbFind.Location = new System.Drawing.Point(43, 47);
             this.tbFind.Name = "tbFind";
-            this.tbFind.Size = new System.Drawing.Size(512, 23);
+            this.tbFind.Size = new System.Drawing.Size(595, 23);
             this.tbFind.TabIndex = 7;
             this.tbFind.TextChanged += new System.EventHandler(this.tbFind_TextChanged);
             // 
@@ -133,7 +135,8 @@ namespace TelephoneBook_
             // btDelete
             // 
             this.btDelete.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btDelete.Location = new System.Drawing.Point(406, 324);
+            this.btDelete.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btDelete.Location = new System.Drawing.Point(489, 374);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(149, 50);
             this.btDelete.TabIndex = 9;
@@ -143,14 +146,14 @@ namespace TelephoneBook_
             // 
             // tbPhoneMobile
             // 
-            this.tbPhoneMobile.Location = new System.Drawing.Point(43, 431);
+            this.tbPhoneMobile.Location = new System.Drawing.Point(3, 113);
             this.tbPhoneMobile.Name = "tbPhoneMobile";
             this.tbPhoneMobile.Size = new System.Drawing.Size(231, 23);
             this.tbPhoneMobile.TabIndex = 10;
             // 
             // tbAdress
             // 
-            this.tbAdress.Location = new System.Drawing.Point(43, 471);
+            this.tbAdress.Location = new System.Drawing.Point(3, 153);
             this.tbAdress.Name = "tbAdress";
             this.tbAdress.Size = new System.Drawing.Size(231, 23);
             this.tbAdress.TabIndex = 11;
@@ -158,7 +161,7 @@ namespace TelephoneBook_
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(43, 365);
+            this.label5.Location = new System.Drawing.Point(3, 47);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 15);
             this.label5.TabIndex = 12;
@@ -167,7 +170,7 @@ namespace TelephoneBook_
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(43, 457);
+            this.label6.Location = new System.Drawing.Point(3, 139);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 15);
             this.label6.TabIndex = 13;
@@ -175,7 +178,8 @@ namespace TelephoneBook_
             // 
             // btUpdateRow
             // 
-            this.btUpdateRow.Location = new System.Drawing.Point(406, 395);
+            this.btUpdateRow.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btUpdateRow.Location = new System.Drawing.Point(489, 318);
             this.btUpdateRow.Name = "btUpdateRow";
             this.btUpdateRow.Size = new System.Drawing.Size(149, 50);
             this.btUpdateRow.TabIndex = 14;
@@ -183,31 +187,42 @@ namespace TelephoneBook_
             this.btUpdateRow.UseVisualStyleBackColor = true;
             this.btUpdateRow.Click += new System.EventHandler(this.btUpdateRow_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.tbAdress);
+            this.panel1.Controls.Add(this.tbAllName);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.tbPhoneNumber);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.l);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.tbPhoneMobile);
+            this.panel1.Location = new System.Drawing.Point(43, 316);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(337, 179);
+            this.panel1.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(567, 507);
+            this.ClientSize = new System.Drawing.Size(670, 507);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btUpdateRow);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.tbAdress);
-            this.Controls.Add(this.tbPhoneMobile);
             this.Controls.Add(this.btDelete);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbFind);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.l);
-            this.Controls.Add(this.tbPhoneNumber);
-            this.Controls.Add(this.tbAllName);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Телефонный справочник";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,6 +247,7 @@ namespace TelephoneBook_
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btUpdateRow;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
